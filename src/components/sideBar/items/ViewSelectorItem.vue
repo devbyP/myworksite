@@ -1,15 +1,16 @@
 <template>
-<li
+<SideBarItem
   class="to-view" :class="{active: isActive}"
   @click.stop="toPage"
 >
   {{ showPageName }}
-</li>
+</SideBarItem>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router';
+import SideBarItem from './SideBarItem.vue';
 
 const router = useRouter()
 const { pageName } = defineProps<{pageName: string}>()
@@ -33,10 +34,6 @@ function toPage() {
 </script>
 
 <style scoped>
-.to-view {
-  cursor: pointer;
-  font-size: .8rem;
-}
 .active {
   cursor: default;
 }

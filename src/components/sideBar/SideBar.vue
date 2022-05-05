@@ -1,13 +1,18 @@
 <template>
 <div class="side-bar">
   <ul class="quick-ation">
-    <li>plus</li>
+    <SideBarItem>new project</SideBarItem>
+    <SideBarItem>new note</SideBarItem>
   </ul>
+
   <div class="section-divider"></div>
+
   <ul class="quick-item">
     <RouterView name="sideBarTools" />
   </ul>
+
   <div class="section-divider"></div>
+
   <ul class="view-selector">
     <ViewSelectorItemVue page-name="board" />
     <ViewSelectorItemVue page-name="project" />
@@ -17,19 +22,20 @@
 
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import ViewSelectorItemVue from './ViewSelectorItem.vue';
+import ViewSelectorItemVue from './items/ViewSelectorItem.vue';
+import SideBarItem from './items/SideBarItem.vue';
 
 </script>
 
 <style scoped>
 /***** spacing style ******/
-
-/* gab on each item */
-ul li {
-  margin: 7px 0;
-}
 .section-divider {
   margin: 5px 0;
+}
+
+/** local font size */
+.side-bar {
+  font-size: 15px;
 }
 
 /** general style(on this component) */
@@ -37,17 +43,12 @@ ul li {
   width: 50px;
   border-bottom: 1px solid var(--color-text);
 }
-
-li:hover {
-  background-color: rgb(255, 255, 255, .2);
-}
-
 .side-bar {
   padding: 0 10px;
   width: 70px;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-background-soft);
+  background-color: var(--color-background-hard);
   border-right: 1px solid var(--color-border);
 }
 
