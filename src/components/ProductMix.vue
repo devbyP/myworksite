@@ -1,14 +1,12 @@
-<script setup lang="ts">
-const { productName } = defineProps<{
-  productName: string
-}>()
-</script>
-
 <template>
   <div class="product-mix">
-    <h3>{{ productName }}</h3>
+    <h3>{{ props.productName }}</h3>
   </div>
 </template>
+
+<script setup lang="ts">
+const props = defineProps<{productName: string}>()
+</script>
 
 <style scoped>
 

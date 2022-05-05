@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { RouterView, RouterLink } from 'vue-router'
+import HeaderNavBarVue from './components/HeaderNavBar.vue';
+import SideBar from './components/sideBar/SideBar.vue';
 </script>
 
 <template>
   <header>
-    <nav>
-
-    </nav>
+    <HeaderNavBarVue/>
   </header>
   <div class="site-wrapper">
+    <SideBar />
     <RouterView />
   </div>
 </template>
@@ -17,23 +18,16 @@ import { RouterView, RouterLink } from 'vue-router'
 @import '@/assets/base.css';
 
 header {
-  min-height: var(--section-gap);
-  display: flex;
-  justify-content: center;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  width: 1024px;
-  border: 1px solid black;
+  max-height: var(--header-size);
+  background-color: var(--color-background);
 }
 
 .site-wrapper {
-  width: 1024px;
+  display: flex;
+  max-width: var(--site-max-width);
   margin: 0 auto;
-  border: 1px solid black;
+  background-color: var(--color-background-soft);
+  min-height: calc(100vh - var(--header-size));
 }
 
 </style>

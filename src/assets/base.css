@@ -32,16 +32,24 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
 }
 
 /* semantic popular screen max size for various devices */
 :root {
-  --mobile-width: var(480px);
-  --tablets-width: var(768px);
-  --laptops-width: var(1024px);
-  --desktop-width: var(1200px);
+  --mobile-width: 480px;
+  --tablets-width: 768px;
+  --laptops-width: 1024px;
+  --desktop-width: 1200px;
+}
+
+/* global size */
+:root {
+  --header-size: 70px;
+  /*
+    max width of overall site.
+    real size will be relative to screen size.
+  */
+  --site-max-width: 1440px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +63,18 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+  }
+  a {
+    color: #17fd7f;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a:active {
+    color: #aebb3c;
+  }
+  a:visited {
+    color: #91186c;
   }
 }
 
@@ -71,10 +91,15 @@ body {
   padding: 0;
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background: var(--color-background-mute);
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+ul, li {
+  padding: 0;
+  list-style: none;
 }

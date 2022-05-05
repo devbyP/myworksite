@@ -3,8 +3,10 @@ import ProductMix from "@/components/ProductMix.vue"
 </script>
 
 <template>
+  <div class="side-bar">
+
+  </div>
   <main>
-    <ProductMix product-name="abc"/>
   </main>
 </template>
 
