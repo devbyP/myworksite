@@ -3,7 +3,6 @@
   draggable="true" 
   class="test"
   @dragstart="startDrag"
-  @drag.stop
 >
   <p><slot></slot></p>
 </div>
@@ -13,7 +12,7 @@
 function startDrag(e: DragEvent) {
   const dt = e.dataTransfer
   if (dt !== null) {
-    dt.setData("title", "this is title")
+    dt.setData("new", "this is title")
     dt.setDragImage(document.createElement('div'), 0, 0)
   }
 }

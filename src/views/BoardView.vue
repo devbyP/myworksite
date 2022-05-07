@@ -1,25 +1,27 @@
 <template>
   <main>
-    <TestDrag>test A</TestDrag>
+    <TestDrag>Simple Note</TestDrag>
     <div 
       class="board-canvas" 
-      @dragenter.prevent.stop="enterZone"
-      @dragover.prevent.stop="moveAround"
+      @dragenter.prevent="enterZone"
+      @dragover.prevent="moveAround"
       @drop="savePosition"
     >
-      <TestDrag ref="draging" :style="pStyle">{{dragingItem.title}}</TestDrag>
-      <TestDrag
+      <BoardPin ref="draging" :style="pStyle" :pinId="-1"></BoardPin>
+      <BoardPin
         v-for="ele in boardChildren"
         :key="ele.id"
         :style="{top: ele.posY+'px', left: ele.posX+'px', zIndex:ele.zIndex, position:'absolute'}"
-      >{{ele.title}}</TestDrag>
+        :pinId="ele.id"
+      ></BoardPin>
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, computed } from "vue";
+import { reactive, ref, computed, type CSSProperties } from "vue";
 import TestDrag from "../components/TestDrag.vue";
+import BoardPin from "../components/BoardPin.vue";
 interface Item {
   id: number
   title: string
@@ -31,7 +33,7 @@ interface Item {
 interface PrepareItem extends Item {
   isDrag: boolean
 }
-const boardChildren = reactive<Item[]>([])
+const boardChildren = reactive<{[key: number]: Item}>({})
 const countId = ref<number>(0)
 const dragingItem = reactive<PrepareItem>({
   id: -1,
@@ -42,7 +44,7 @@ const dragingItem = reactive<PrepareItem>({
   isDrag: false
 })
 
-const pStyle = computed(() => {
+const pStyle = computed<CSSProperties>(() => {
   return {
     display: dragingItem.isDrag? "block": "none",
     left: `${dragingItem.posX}px`,
@@ -51,13 +53,19 @@ const pStyle = computed(() => {
     position: "absolute",
   }
 })
+let pendingDelete: Item
 
 const draging = ref(null)
 
 function enterZone(e: DragEvent) {
   const dt = e.dataTransfer
-  if (dt) {
-    dragingItem.title = dt.getData("title")
+  if (!dt) {
+    return
+  }
+  const newData = dt.getData("new")
+//  const setData = dt.getData("set")
+  if (newData) {
+    dragingItem.title = newData
     dragingItem.isDrag = true
   }
 }
@@ -72,14 +80,28 @@ function moveAround(e: DragEvent) {
   if (ox < 0 || oy < 0) {
     return 
   }
-  dragingItem.posX = ox
-  dragingItem.posY = oy
-  console.log(ox, oy)
+  const dt = e.dataTransfer
+  if (!dt) {
+    return 
+  }
+  if (dt.getData("new")) {
+    dragingItem.posX = ox
+    dragingItem.posY = oy
+  }
+  if (dt.getData("set")) {
+    const id = dt.getData("set")
+    const bc = boardChildren[parseInt(id)]
+    bc.posX = ox
+    bc.posY = oy
+  }
 }
 
 function savePosition(e: DragEvent) {
   const dt = e.dataTransfer
-  if (dt) {
+  if (!dt) {
+    return
+  }
+  if (dt.getData("new")) {
     const newItem: Item = {
       id: countId.value,
       title: dragingItem.title,
@@ -87,7 +109,7 @@ function savePosition(e: DragEvent) {
       posY: dragingItem.posY,
       zIndex: (countId.value + 1) * 10
     }
-    boardChildren.push(newItem)
+    boardChildren[newItem.id] = newItem
     countId.value++
     dragingItem.title = ""
     dragingItem.isDrag = false
