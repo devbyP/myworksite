@@ -40,9 +40,10 @@ function toPage() {
 .view-select:hover {
   background-color: rgb(255, 255, 255, .2);
 }
-.isActive {
+.active {
+  box-shadow: 0 1px 0 0 inset var(--color-text);
   background-color: rgb(255, 255, 255, .2);
-  cursor: initial;
+  cursor:default;
 }
 
 </style>
