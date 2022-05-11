@@ -11,7 +11,7 @@ nav {
   justify-content: space-between;
   padding: 0 10px;
   align-items: center;
-  height: var(--header-size);
+  height: calc(var(--header-size) - 30px);
   max-width: var(--site-max-width);
   margin: 0 auto;
 }
