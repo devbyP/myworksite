@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { RouterView, RouterLink } from 'vue-router'
-import HeaderNavBarVue from './components/HeaderNavBar.vue';
+import HeaderNavBarVue from './components/header/HeaderNavBar.vue';
 import SideBar from './components/sideBar/SideBar.vue';
+import ViewSelectNav from './components/header/ViewSelectNav.vue';
 </script>
 
 <template>
   <header>
     <HeaderNavBarVue/>
+    <ViewSelectNav/>
   </header>
   <div class="site-wrapper">
     <SideBar />

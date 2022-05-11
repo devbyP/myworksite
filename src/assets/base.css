@@ -47,7 +47,7 @@
 
 /* global size */
 :root {
-  --header-size: 70px;
+  --header-size: 80px;
   /*
     max width of overall site.
     real size will be relative to screen size.
