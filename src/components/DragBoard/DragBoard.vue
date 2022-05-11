@@ -94,5 +94,10 @@ function savePosition(e: DragEvent) {
 </script>
 
 <style scoped>
+.drag-board {
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+}
 
 </style>
