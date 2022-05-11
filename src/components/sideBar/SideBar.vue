@@ -14,15 +14,15 @@
   <div class="section-divider"></div>
 
   <ul class="view-selector">
-    <ViewSelectorItemVue page-name="board" />
-    <ViewSelectorItemVue page-name="project" />
+    <ViewSelectItemVue page-name="board" />
+    <ViewSelectItemVue page-name="project" />
   </ul>
 </div>
 </template>
 
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import ViewSelectorItemVue from './items/ViewSelectorItem.vue';
+import ViewSelectItemVue from './items/ViewSelectItem.vue';
 import SideBarItem from './items/SideBarItem.vue';
 
 </script>
