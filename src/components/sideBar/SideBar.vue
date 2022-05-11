@@ -11,18 +11,11 @@
     <RouterView name="sideBarTools" />
   </ul>
 
-  <div class="section-divider"></div>
-
-  <ul class="view-selector">
-    <ViewSelectItemVue page-name="board" />
-    <ViewSelectItemVue page-name="project" />
-  </ul>
 </div>
 </template>
 
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import ViewSelectItemVue from './items/ViewSelectItem.vue';
 import SideBarItem from './items/SideBarItem.vue';
 
 </script>
@@ -49,6 +42,7 @@ import SideBarItem from './items/SideBarItem.vue';
   display: flex;
   flex-direction: column;
   background-color: var(--color-background-hard);
+  border-top: 1px solid var(--color-border);
   border-right: 1px solid var(--color-border);
 }
 
