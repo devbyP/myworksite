@@ -14,7 +14,9 @@ import ViewSelectNav from './components/header/ViewSelectNav.vue';
   </header>
   <div class="site-wrapper">
     <SideBar />
-    <RouterView />
+    <main>
+      <RouterView />
+    </main>
   </div>
 </template>
 
@@ -37,6 +39,15 @@ header {
   margin: 0 auto;
   background-color: var(--color-background-soft);
   min-height: calc(100vh - var(--header-size));
+}
+
+main {
+  padding: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-size));
+  border: 1px solid var(--color-border);
+  border-left: none;
+  overflow: auto;
 }
 
 </style>
