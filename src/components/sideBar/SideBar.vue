@@ -1,15 +1,17 @@
 <template>
 <div class="side-bar">
-  <ul class="quick-ation">
-    <SideBarItem>new project</SideBarItem>
-    <SideBarItem>new note</SideBarItem>
-  </ul>
+  <div class="quick-action">
+    <ul class="quick-ation-list">
+      <SideBarItem>new project</SideBarItem>
+      <SideBarItem>new note</SideBarItem>
+    </ul>
+  </div>
 
   <div class="section-divider"></div>
 
-  <ul class="quick-item">
+  <div class="quick-item">
     <RouterView name="sideBarTools" />
-  </ul>
+  </div>
 
 </div>
 </template>
