@@ -1,5 +1,7 @@
 <template>
-  <SideBarItem>user item</SideBarItem>
+  <ul>
+    <SideBarItem>user item</SideBarItem>
+  </ul>
 </template>
 
 <script setup lang="ts">

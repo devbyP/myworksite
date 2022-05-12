@@ -1,4 +1,7 @@
 <template>
+  <ul>
+    <SideBarItem>project item</SideBarItem>
+  </ul> 
 </template>
 
 <script setup lang="ts">
