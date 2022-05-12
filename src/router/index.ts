@@ -18,7 +18,7 @@ const router = createRouter({
       path: '/project',
       name: 'project',
       components: {
-        default: BoardView,
+        default: import('@/views/ProjectManagerView.vue'),
         sideBarTools: ProjectTools,
       }
     }
