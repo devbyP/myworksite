@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import BoardView from '../views/BoardView.vue'
 import MainTools from '../components/sideBar/MainTools.vue'
-import ProjectTools from '../components/sideBar/ProjectTools.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,9 +18,25 @@ const router = createRouter({
       name: 'project',
       components: {
         default: import('@/views/ProjectManagerView.vue'),
-        sideBarTools: ProjectTools,
+        sideBarTools: import('@/components/sideBar/ProjectTools.vue'),
       }
-    }
+    },
+    {
+      path: '/budget',
+      name: 'budget',
+      components: {
+        default: import('@/views/BudgetManagerView.vue'),
+        sideBarTools: import('@/components/sideBar/BudgetTools.vue')
+      }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      components: {
+        default: import('@/views/ProfileView.vue'),
+        sideBarTools: import('@/components/sideBar/ProfileTools.vue')
+      }
+    },
   ]
 })
 
