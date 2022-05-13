@@ -1,21 +1,12 @@
-import type DragableFree  from './DragableFree'
-import type { Vector2, Vector3 } from './Vector'
+import type { Component } from 'vue'
 
-export default class DragTool implements DragableFree {
-  public position: Vector3
-  public component: string
-
-  constructor (component?: string, position?: Vector3) {
-    this.position = position ? position : {x:0, y:0, z:0}
-    this.component = component ? component: ""
+export default class DragTool {
+  private generate: Component
+  constructor(com: Component) {
+    this.generate = com
   }
 
-  public move (pos: Vector2) {
-    this.position.x = pos.x
-    this.position.y = pos.y
-  }
-
-  public arrangeZ (z: number) {
-    this.position.z = z
+  getComponent(): Component {
+    return this.generate
   }
 }
