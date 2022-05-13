@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="drag-item" draggable="true">
 
   </div>
 </template>
