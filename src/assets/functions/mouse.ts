@@ -1,6 +1,6 @@
 import type { Vector2 } from "../classes/Vector"
 
-export default function getRelativeMousePosition (e: MouseEvent): Vector2 | null {
+export function getRelativeMousePosition (e: MouseEvent): Vector2 | null {
   const target = e.currentTarget
   if (!(target instanceof Element)) {
     return null
