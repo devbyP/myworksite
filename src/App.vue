@@ -20,7 +20,7 @@ import ViewSelectNav from './components/header/ViewSelectNav.vue';
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @import '@/assets/base.css';
 
 header {
