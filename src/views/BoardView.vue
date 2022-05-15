@@ -1,26 +1,19 @@
 <template>
   <div class="board-view">
     <BoardTypeSelect
-      :select-type="store.viewType"
-      @change="changeType"
+      :selected-type="store.viewType"
+      :options="typeOptions"
+      @click-select="changeType"
     />
-    <SlotBoard v-if="store.viewType === 'slot'"
-    
-    />
-    <DragBoard v-if="store.viewType === 'drag'"
-
-    />
-    <SetBoard v-if="store.viewType === 'set'"
-
-    />
-    <ListBoard v-if="store.viewType === 'list'"
-    
-    />
+    <SetBoard v-if="store.viewType === 'set'"/>
+    <ListBoard v-if="store.viewType === 'list'"/>
+    <SlotBoard v-if="store.viewType === 'slot'"/>
+    <DragBoard v-if="store.viewType === 'drag'"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useBoardStore } from "@/stores/board";
+import { useBoardStore, allType } from "@/stores/board";
 import DragBoard from "../components/DragBoard/DragBoard.vue";
 import SlotBoard from "../components/slotBoard/SlotBoard.vue";
 import SetBoard from "../components/setBoard/SetBoard.vue";
@@ -29,12 +22,17 @@ import BoardTypeSelect from "../components/BoardTypeSelect.vue";
 
 const startType = localStorage.getItem("boardType") || "set"
 const store = useBoardStore()
+
+const typeOptions: string[] = []
+allType.forEach(t => {typeOptions.push(t)})
+
+// set default type.
 store.setType(startType)
-function changeType(e: Event) {
-  const select = e.target as HTMLSelectElement
-  const newValue = select.value
-  store.setType(newValue)
-  localStorage.setItem("boardType", newValue)
+
+function changeType(t: string) {
+  if (store.setType(t)) {
+    localStorage.setItem("boardType", t)
+  }
 }
 </script>
 
