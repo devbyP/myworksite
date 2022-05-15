@@ -4,7 +4,7 @@
     @dragover.prevent="moveAround"
     @drop="savePosition"
   >
-    <slot></slot>
+
   </div>
 </template>
 
