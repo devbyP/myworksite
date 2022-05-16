@@ -57,6 +57,7 @@ $arrow-width: 12px;
   }
 }
 .type-select {
+  z-index: 100;
   position: absolute;
   display: block;
   cursor: pointer;
