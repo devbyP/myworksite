@@ -3,6 +3,8 @@
     <ShowConfig
       :windows="windows" 
       @toggle="toggleWindow"
+      @close-all="toggleAll(false)"
+      @open-all="toggleAll(true)"
       class="show-pos"
     />
     <div class="project-sec" v-show="windows[0].enable">
@@ -48,6 +50,12 @@ function toggleWindow(wName: string, i: number) {
   const selectWindow = windows[i]
   if (selectWindow.name === wName) {
     selectWindow.enable = !selectWindow.enable
+  }
+}
+
+function toggleAll(open: boolean) {
+  for (let i = 0; i < windows.length; i++) {
+    windows[i].enable = open
   }
 }
 

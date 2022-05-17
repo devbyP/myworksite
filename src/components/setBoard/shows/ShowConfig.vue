@@ -1,6 +1,28 @@
 <template>
   <div class="window-show-config">
     <h3 class="box-title">Window Show Config</h3>
+    <div class="action-wrapper">
+      <div class="action">
+        <button class="action-btn"
+          @click="triggerAll(false)"
+          @mouseover="showDetail(0)"
+          @mouseout="closeDetail(0)"
+        >-</button>
+        <div class="detail-box-wrapper" :class="{show: isShow[0]}">
+          <span class="detail">collapse all</span>
+        </div>
+      </div>
+      <div class="action">
+        <button class="action-btn"
+          @click="triggerAll(true)"
+          @mouseover="showDetail(1)"
+          @mouseout="closeDetail(1)"
+        >+</button>
+        <div class="detail-box-wrapper" :class="{show: isShow[1]}">
+          <span class="detail">open all</span>
+        </div>
+      </div>
+    </div>
     <div v-for="(window, i) in windows"
       class="show-conf"
       :key="window.name"
@@ -14,6 +36,7 @@
 
 <script setup lang="ts">
 import Checkbox from '@/components/custom/Checkbox.vue'
+import { reactive } from 'vue';
 import type { Window } from '../type';
 
 const { windows } = defineProps<{
@@ -21,10 +44,28 @@ const { windows } = defineProps<{
 }>()
 const emit = defineEmits<{
   (e: 'toggle', window: string, index: number): void
+  (e: "openAll"): void
+  (e: "closeAll"): void
 }>()
 
 function trigger(wName: string, i: number) {
   emit("toggle", wName, i)
+}
+
+function triggerAll(flag: boolean) {
+  if (flag) {
+    return emit("openAll")
+  }
+  emit("closeAll")
+}
+
+const isShow = reactive<[boolean, boolean]>([false, false])
+
+function showDetail (index: number) {
+  isShow[index] = true
+}
+function closeDetail (index: number) {
+  isShow[index] = false
 }
 
 </script>
@@ -63,6 +104,45 @@ $name-n-box-space: 25px;
   }
   &:hover .name::after {
     width: $name-n-box-space;
+  }
+}
+.action-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  .action {
+    & .detail-box-wrapper {
+      position: absolute;
+      width: 100px;
+      top: -30px;
+      left: 26px;
+      & .detail {
+        position: absolute;
+        display: none;
+        background-color: var(--color-background);
+        border-radius: 6px;
+        padding: 3px 7px;
+        z-index: 120;
+        pointer-events: none;
+      }
+      &.show .detail {
+        display: block;
+      }
+    }
+    .action-btn {
+      background-color: transparent;
+      color: var(--color-text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: 1px solid #ffffff63;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-left: 8px;
+    }
   }
 }
 
