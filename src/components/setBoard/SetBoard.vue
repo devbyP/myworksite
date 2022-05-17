@@ -6,12 +6,13 @@
       class="show-pos"
     />
     <div class="project-sec" v-show="windows[0].enable">
+      
       project
     </div>
     <div class="budget-sec" v-show="windows[1].enable">
       budget
     </div>
-    <div class="my-ideas-sec" v-show="windows[2].enable">
+    <div class="ideas-sec" v-show="windows[2].enable">
       ideas
     </div>
     <div class="voting-sec" v-show="windows[3].enable">
@@ -34,7 +35,7 @@ const windows = reactive<Window[]>([
     enable: true
   },
   {
-    name: "my ideas section",
+    name: "ideas section",
     enable: true
   },
   {
