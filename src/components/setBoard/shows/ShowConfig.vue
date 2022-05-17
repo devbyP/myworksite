@@ -36,6 +36,7 @@ function trigger(wName: string, i: number) {
 .window-show-config {
   display: flex;
   flex-direction: column;
+  background-color: var(--color-background-soft);
   border: 1px solid #fff;
   border-radius: 12px;
   padding: 10px 20px;
