@@ -33,7 +33,7 @@ const { checked } = defineProps<{checked: boolean}>()
     }
   }
   &.checked {
-    background-color: lightgreen;
+    background-color: greenyellow;
     & .switch {
       transform: translateX(10px);
     }
