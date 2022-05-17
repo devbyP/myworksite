@@ -22,6 +22,11 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 }
 
+/* my color scheme design system */
+:root {
+
+}
+
 /* semantic color variables for this project */
 :root {
   --color-background: var(--vt-c-white);
