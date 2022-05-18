@@ -38,15 +38,15 @@ header {
   max-width: $site-max-width;
   margin: 0 auto;
   background-color: $color-background-soft;
-  min-height: calc(100vh - $header-size);
+  height: $board-height;
+  overflow: hidden;
 }
 
 main {
   padding: 0;
+  min-height: $board-height;
   width: 100%;
-  height: calc(100vh - $header-size);
-  border: 1px solid $color-border;
-  border-left: none;
+  border-right: 1px solid $color-border;
   overflow: auto;
 }
 

@@ -38,7 +38,7 @@ function selectType (t: string) {
 </script>
 
 <style lang="scss" scoped>
-$arrow-top: 44%;
+$arrow-top: 30%;
 $arrow-top-open: 20%;
 $arrow-width: 12px;
 .type-options {
@@ -68,6 +68,7 @@ $arrow-width: 12px;
   text-align: right;
   padding-bottom: 3px;
   padding-right: 5px;
+  // arrow
   &::before {
     content: "";
     position: absolute;
@@ -78,6 +79,7 @@ $arrow-width: 12px;
     border: calc($arrow-width / 2) solid transparent;
     border-color: $color-text transparent transparent transparent;
   }
+  // underline
   &::after {
     content: "";
     position: absolute;

@@ -57,3 +57,5 @@ $color-board-background: #333333;
 $color-link: #17fd7f;
 $color-link-active: #aebb3c;
 $color-link-visited: #91186c;
+
+$board-height: calc(100vh - $header-size);

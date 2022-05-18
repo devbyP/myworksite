@@ -1,6 +1,6 @@
 <template>
   <div class="status-tab">
-    {{ title }}
+    <span class="title">{{ title }}</span>
     <slot></slot>
     <button class="toggle-btn" @click.prevent="emit('toggle')">{{ isOpen? "-": "+" }}</button>
   </div>
@@ -17,20 +17,20 @@ const emit = defineEmits<{
 <style lang="scss" scoped>
 .status-tab {
   display: flex;
-  width: 500px;
+  width: 100%;
+  height: 28px;
   justify-content: space-between;
   padding: 5px 10px;
-  border-radius: 7px 7px 0 0;
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-color: var(--color-text);
-  background-color: blue;
-  & .toggle-btn {
-    width: 22px;
-    height: 22px;
-  }
-  @media only screen and (max-width: $mobile-width) { 
-    border-radius: 0px;
+  border-color: $color-border;
+  .toggle-btn {
+    background-color: transparent;
+    border: 1px solid $color-text;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    color: $color-text;
   }
 }
 </style>
