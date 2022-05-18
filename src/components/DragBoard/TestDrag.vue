@@ -19,7 +19,7 @@ function startDrag(e: DragEvent) {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .test {
   z-index: 10;
   border: 1px solid green;

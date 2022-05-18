@@ -8,6 +8,6 @@
 const props = defineProps<{productName: string}>()
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

@@ -14,11 +14,11 @@ import ViewSelectItem from './items/ViewSelectItem.vue'
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .view-nav {
   display: flex;
   height: 30px;
-  max-width: var(--site-max-width);
+  max-width: $site-max-width;
   margin: 0 auto;
 }
 </style>

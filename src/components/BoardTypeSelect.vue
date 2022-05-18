@@ -76,14 +76,14 @@ $arrow-width: 12px;
     left: 0;
     top: $arrow-top;
     border: calc($arrow-width / 2) solid transparent;
-    border-color: var(--color-text) transparent transparent transparent;
+    border-color: $color-text transparent transparent transparent;
   }
   &::after {
     content: "";
     position: absolute;
     display: block;
     width: $arrow-width;
-    border-bottom: 1px solid var(--color-text);
+    border-bottom: 1px solid $color-text;
     bottom: 0;
     transition: width .2s ease-out;
   }
@@ -92,7 +92,7 @@ $arrow-width: 12px;
   }
   &.open {
     &::before {
-      border-color: transparent transparent transparent var(--color-text);
+      border-color: transparent transparent transparent $color-text;
       top:$arrow-top-open; 
       left: 1px;
     }

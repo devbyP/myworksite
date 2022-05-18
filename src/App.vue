@@ -21,31 +21,31 @@ import ViewSelectNav from './components/header/ViewSelectNav.vue';
 </template>
 
 <style lang="scss">
-@import '@/assets/base.css';
+@import '@/assets/styles/base.scss';
 
 header {
-  max-height: var(--header-size);
-  background-color: var(--color-background);
+  max-height: $header-size;
+  background-color: $color-background;
 }
 
 .header-width-wrapper {
-  max-width: var(--site-max-width);
+  max-width: $site-max-width;
   margin: 0 auto;
 }
 
 .site-wrapper {
   display: flex;
-  max-width: var(--site-max-width);
+  max-width: $site-max-width;
   margin: 0 auto;
-  background-color: var(--color-background-soft);
-  min-height: calc(100vh - var(--header-size));
+  background-color: $color-background-soft;
+  min-height: calc(100vh - $header-size);
 }
 
 main {
   padding: 0;
   width: 100%;
-  height: calc(100vh - var(--header-size));
-  border: 1px solid var(--color-border);
+  height: calc(100vh - $header-size);
+  border: 1px solid $color-border;
   border-left: none;
   overflow: auto;
 }

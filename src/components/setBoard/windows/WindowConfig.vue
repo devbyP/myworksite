@@ -77,7 +77,7 @@ function closeDetail (index: number) {
 .window-show-config {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-background-soft);
+  background-color: $color-background-soft;
   border: 1px solid #fff;
   border-radius: 12px;
   padding: 10px 20px;
@@ -99,7 +99,7 @@ $name-n-box-space: 25px;
       top: 50%;
       width: 0px;
       height: 1px;
-      background-color: var(--color-text);
+      background-color: $color-text;
     }
   }
   &:hover .name::after {
@@ -119,7 +119,7 @@ $name-n-box-space: 25px;
       & .detail {
         position: absolute;
         display: none;
-        background-color: var(--color-background);
+        background-color: $color-background;
         border-radius: 6px;
         padding: 3px 7px;
         z-index: 120;
@@ -131,7 +131,7 @@ $name-n-box-space: 25px;
     }
     .action-btn {
       background-color: transparent;
-      color: var(--color-text);
+      color: $color-text;
       font-size: 1.2rem;
       cursor: pointer;
       border: 1px solid #ffffff63;
@@ -139,8 +139,8 @@ $name-n-box-space: 25px;
       justify-content: center;
       align-items: center;
       border-radius: 5px;
-      width: 1.4rem;
-      height: 1.4rem;
+      width: 22px;
+      height: 22px;
       margin-left: 8px;
     }
   }

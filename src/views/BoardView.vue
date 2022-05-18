@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { useBoardStore, allType } from "@/stores/board";
-import DragBoard from "../components/DragBoard/DragBoard.vue";
+import DragBoard from "../components/dragBoard/DragBoard.vue";
 import SlotBoard from "../components/slotBoard/SlotBoard.vue";
 import SetBoard from "../components/setBoard/SetBoard.vue";
 import ListBoard from "../components/listBoard/ListBoard.vue";
@@ -36,6 +36,6 @@ function changeType(t: string) {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

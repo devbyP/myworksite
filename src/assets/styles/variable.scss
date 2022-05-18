@@ -1,0 +1,59 @@
+// base color
+$white: #ffffff;
+$white-soft: #f8f8f8;
+$white-mute: #f2f2f2;
+
+$black: #181818;
+$black-hard: #202020;
+$black-soft: #222222;
+$black-mute: #282828;
+
+$indigo: #2c3e50;
+
+$divider-light-1: rgba(60, 60, 60, 0.29);
+$divider-light-2: rgba(60, 60, 60, 0.12);
+$divider-dark-1: rgba(84, 84, 84, 0.65);
+$divider-dark-2: rgba(84, 84, 84, 0.48);
+
+$text-ligth-1: $indigo;
+$text-ligth-2: rgba(60, 60, 60, 0.66);
+$text-dark-1: $white;
+$text-dark-2: rgba(235, 235, 235, 0.64);
+
+// site section site.
+$header-size: 80px;
+
+$site-max-width: 1440px;
+
+// screen size
+$mobile-width: 480px;
+$tablets-width: 768px;
+$laptops-width: 1024px;
+$desktop-width: 1200px;
+
+// my color scheme.
+$primary: #320064;
+$primary-2: #230046;
+
+$color-link: #17fd7f;
+$color-link-active: #aebb3c;
+$color-link-visited: #91186c;
+
+// semantic color
+
+$color-background: $black;
+$color-background-hard: $black-hard;
+$color-background-soft: $black-soft;
+$color-background-mute: $black-mute;
+
+$color-border: $divider-dark-2;
+$color-border-hover: $divider-dark-1;
+
+$color-heading: $text-dark-1;
+$color-text: $text-dark-2;
+
+$color-board-background: #333333;
+
+$color-link: #17fd7f;
+$color-link-active: #aebb3c;
+$color-link-visited: #91186c;

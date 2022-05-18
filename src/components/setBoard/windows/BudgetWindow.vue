@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    test show
   </div>
 </template>
 
@@ -8,6 +8,6 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

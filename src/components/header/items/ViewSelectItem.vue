@@ -32,7 +32,7 @@ function toPage() {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .view-select {
   padding: 5px 10px;
   cursor: pointer;
@@ -41,7 +41,7 @@ function toPage() {
   background-color: rgb(255, 255, 255, .2);
 }
 .active {
-  box-shadow: 0 1px 0 0 inset var(--color-text);
+  box-shadow: 0 1px 0 0 inset $color-text;
   background-color: rgb(255, 255, 255, .2);
   cursor:default;
 }

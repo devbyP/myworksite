@@ -1,32 +1,57 @@
 <template>
   <div class="set-board">
-    <ShowConfig
+    <WindowConfig
       :windows="windows" 
       @toggle="toggleWindow"
       @close-all="toggleAll(false)"
       @open-all="toggleAll(true)"
       class="show-pos"
     />
-    <div class="project-sec" v-show="windows[0].enable">
-      
-      project
+    <div class="project-sec">
+      <StatusTab
+        :title="projectSection.name"
+        :is-open="projectSection.enable"
+        @toggle="toggleWindow(projectSection.name, 0)"
+      />
+      <ProjectWindow v-show="projectSection.enable"/>
     </div>
-    <div class="budget-sec" v-show="windows[1].enable">
-      budget
+    <div class="budget-sec">
+      <StatusTab
+        :title="budgetSection.name"
+        :is-open="budgetSection.enable"
+        @toggle="toggleWindow(budgetSection.name, 1)"
+      />
+      <BudgetWindow v-show="budgetSection.enable" />
     </div>
-    <div class="ideas-sec" v-show="windows[2].enable">
-      ideas
+    <div class="ideas-sec">
+      <StatusTab
+        :title="ideasSection.name"
+        :is-open="ideasSection.enable"
+        @toggle="toggleWindow(ideasSection.name, 2)"
+      />
+      <IdeaWindow v-show="ideasSection.enable"/>
     </div>
-    <div class="voting-sec" v-show="windows[3].enable">
-      voting
+    <div class="voting-sec">
+      <StatusTab
+        :title="votingSection.name"
+        :is-open="votingSection.enable"
+        @toggle="toggleWindow(votingSection.name, 3)"
+      />
+      <VotingWindow v-show="votingSection.enable"/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import ShowConfig from "./shows/ShowConfig.vue";
 import type { Window } from './type';
+import WindowConfig from "./windows/WindowConfig.vue";
+import StatusTab from "./StatusTab.vue";
+import ProjectWindow from "./windows/ProjectWindow.vue";
+import BudgetWindow from "./windows/BudgetWindow.vue";
+import IdeaWindow from "./windows/IdeaWindow.vue";
+import VotingWindow from "./windows/VotingWindow.vue";
+
 const windows = reactive<Window[]>([
   {
     name: "project section",
@@ -46,6 +71,11 @@ const windows = reactive<Window[]>([
   }
 ])
 
+const projectSection: Window = windows[0]
+const budgetSection: Window = windows[1]
+const ideasSection: Window = windows[2]
+const votingSection: Window = windows[3]
+
 function toggleWindow(wName: string, i: number) {
   const selectWindow = windows[i]
   if (selectWindow.name === wName) {
@@ -61,12 +91,10 @@ function toggleAll(open: boolean) {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .set-board {
   display:grid;
-  
 }
-
 .show-pos {
   position: absolute;
   top: 100px;

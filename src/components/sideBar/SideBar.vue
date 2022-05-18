@@ -22,7 +22,7 @@ import SideBarItem from './items/SideBarItem.vue';
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /***** spacing style ******/
 .section-divider {
   margin: 5px 0;
@@ -36,16 +36,16 @@ import SideBarItem from './items/SideBarItem.vue';
 /** general style(on this component) */
 .section-divider {
   width: 50px;
-  border-bottom: 1px solid var(--color-text);
+  border-bottom: 1px solid $color-text;
 }
 .side-bar {
   padding: 0 10px;
   width: 70px;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-background-hard);
-  border-top: 1px solid var(--color-border);
-  border-right: 1px solid var(--color-border);
+  background-color: $color-background-hard;
+  border-top: 1px solid $color-border;
+  border-right: 1px solid $color-border;
 }
 
 </style>
