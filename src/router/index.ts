@@ -17,24 +17,24 @@ const router = createRouter({
       path: '/project',
       name: 'project',
       components: {
-        default: import('@/views/ProjectManagerView.vue'),
-        sideBarTools: import('@/components/sideBar/ProjectTools.vue'),
+        default: () => import('@/views/ProjectManagerView.vue'),
+        sideBarTools: () => import('@/components/sideBar/ProjectTools.vue'),
       }
     },
     {
       path: '/budget',
       name: 'budget',
       components: {
-        default: import('@/views/BudgetManagerView.vue'),
-        sideBarTools: import('@/components/sideBar/BudgetTools.vue')
+        default: () => import('@/views/BudgetManagerView.vue'),
+        sideBarTools: () => import('@/components/sideBar/BudgetTools.vue')
       }
     },
     {
       path: '/profile',
       name: 'profile',
       components: {
-        default: import('@/views/ProfileView.vue'),
-        sideBarTools: import('@/components/sideBar/ProfileTools.vue')
+        default: () => import('@/views/ProfileView.vue'),
+        sideBarTools: () => import('@/components/sideBar/ProfileTools.vue')
       }
     },
   ]
