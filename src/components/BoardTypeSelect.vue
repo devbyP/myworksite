@@ -57,14 +57,9 @@ $arrow-width: 12px;
   }
 }
 .type-select {
-  z-index: 100;
-  position: absolute;
-  display: block;
   cursor: pointer;
-  top: 10px;
-  right: 10px;
   background-color: transparent;
-  width: calc(3rem + $arrow-width);
+  width: calc(38px + $arrow-width);
   text-align: right;
   padding-bottom: 3px;
   padding-right: 5px;
