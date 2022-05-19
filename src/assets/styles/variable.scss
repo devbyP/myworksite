@@ -59,3 +59,16 @@ $color-link-active: #aebb3c;
 $color-link-visited: #91186c;
 
 $board-height: calc(100vh - $header-size);
+
+// general padding size
+$box-padding-x: 10px;
+$box-padding-y: 5px;
+
+$box-padding-yx: $box-padding-y $box-padding-x;
+
+$big-box-padding: 10px 20px;
+
+// border radius
+$border-radius-s: 5px;
+$border-radius-m: 10px;
+$border-radius-l: 12px;
