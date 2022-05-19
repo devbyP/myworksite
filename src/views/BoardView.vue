@@ -1,14 +1,19 @@
 <template>
   <div class="board-view">
-    <BoardTypeSelect
-      :selected-type="store.viewType"
-      :options="typeOptions"
-      @click-select="changeType"
-    />
-    <SetBoard v-if="store.viewType === 'set'"/>
-    <ListBoard v-if="store.viewType === 'list'"/>
-    <SlotBoard v-if="store.viewType === 'slot'"/>
-    <DragBoard v-if="store.viewType === 'drag'"/>
+    <div class="work-area">
+      <SetBoard v-if="store.viewType === 'set'"/>
+      <ListBoard v-if="store.viewType === 'list'"/>
+      <SlotBoard v-if="store.viewType === 'slot'"/>
+      <DragBoard v-if="store.viewType === 'drag'"/>
+    </div>
+    <div class="right-tools-bar">
+      <BoardTypeSelect
+        :selected-type="store.viewType"
+        :options="typeOptions"
+        @click-select="changeType"
+        class="type-select-pos"
+      />
+    </div>
   </div>
 </template>
 
@@ -37,5 +42,21 @@ function changeType(t: string) {
 </script>
 
 <style lang="scss" scoped>
+.board-view {
+  display: flex;
+}
+.work-area {
+  flex-grow: 1;
+}
+.right-tools-bar {
+  height: $board-height;
+  width: 70px;
+  border-left: 1px solid $color-border;
+  .type-select-pos{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
 
 </style>
