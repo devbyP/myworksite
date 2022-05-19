@@ -39,7 +39,7 @@ import SideBarItem from './items/SideBarItem.vue';
   border-bottom: 1px solid $color-text;
 }
 .side-bar {
-  padding: 0 10px;
+  padding: 0 $box-padding-x;
   width: 70px;
   display: flex;
   flex-direction: column;
