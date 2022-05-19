@@ -4,7 +4,7 @@
     <div class="action-wrapper">
       <div class="action">
         <button class="action-btn"
-          @click="triggerAll(false)"
+          @click="store.toggleAll(false)"
           @mouseover="showDetail(0)"
           @mouseout="closeDetail(0)"
         >-</button>
@@ -14,7 +14,7 @@
       </div>
       <div class="action">
         <button class="action-btn"
-          @click="triggerAll(true)"
+          @click="store.toggleAll(true)"
           @mouseover="showDetail(1)"
           @mouseout="closeDetail(1)"
         >+</button>
@@ -23,10 +23,10 @@
         </div>
       </div>
     </div>
-    <div v-for="(window, i) in windows"
+    <div v-for="window in windows"
       class="show-conf"
       :key="window.name"
-      @click="trigger(window.name, i)"
+      @click="store.toggleWindow(window.name)"
     >
       <span class="name">{{ window.name }}</span>
       <Checkbox :checked="window.enable" />
@@ -37,27 +37,10 @@
 <script setup lang="ts">
 import Checkbox from '@/components/custom/Checkbox.vue'
 import { reactive } from 'vue';
-import type { Window } from '../type';
+import { useSetBoardStore } from '@/stores/setBoard';
 
-const { windows } = defineProps<{
-  windows: Window[]
-}>()
-const emit = defineEmits<{
-  (e: 'toggle', window: string, index: number): void
-  (e: "openAll"): void
-  (e: "closeAll"): void
-}>()
-
-function trigger(wName: string, i: number) {
-  emit("toggle", wName, i)
-}
-
-function triggerAll(flag: boolean) {
-  if (flag) {
-    return emit("openAll")
-  }
-  emit("closeAll")
-}
+const store = useSetBoardStore()
+const windows = store.windows
 
 const isShow = reactive<[boolean, boolean]>([false, false])
 
@@ -80,7 +63,7 @@ function closeDetail (index: number) {
   background-color: $color-background-soft;
   border: 1px solid #fff;
   border-radius: 12px;
-  padding: 10px 20px;
+  padding: $big-box-padding;
   z-index: 100;
 }
 $name-n-box-space: 25px;
